@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
 //    phải login mới xem được
     Route::group(['middleware' => ['admin']], function () {
 //        phải login với quyền admin mới xem được
-        Route::get('admin/category', 'CategoryController@index');
+        Route::get('admin', 'Admin\DashboardController@index');
+        Route::resource('admin/category', 'Admin\CategoryController');
     });
 });
